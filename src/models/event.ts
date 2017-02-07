@@ -1,7 +1,8 @@
 export class Event {
     id: number;
     imagePath: string;
-    country: string;
+    countryRu: string;
+    countryEn: string;
     isoCode: string;
     name: string;
     circuitName: string;
