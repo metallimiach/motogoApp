@@ -1,0 +1,23 @@
+<div class="ui stackable secondary pointing menu">
+    <div class="ui container">
+        <div class="item">
+            <img src="/images/logo.png">
+        </div>
+        <a class="item" routerLink="/calendar" routerLinkActive="active">Календарь</a>
+        <a class="item" routerLink="/teams" routerLinkActive="active">Команды</a>
+        <a class="item" routerLink="/riders" routerLinkActive="active">Пилоты</a>
+    </div>
+</div>
+
+<div class="ui container">
+    <router-outlet></router-outlet>
+</div>
+
+<div class="ui vertical footer segment">
+    <div class="ui section divider"></div>
+    <div class="ui container">
+        <i class="big facebook square icon"></i>
+        <i class="big instagram icon"></i>
+        <i class="big youtube icon"></i>
+    </div>    
+</div>
