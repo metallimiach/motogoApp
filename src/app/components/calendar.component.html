@@ -1,77 +1,19 @@
-<h1>{{title}}</h1>
 <div class="ui main container">
     <div class="ui link cards">
-        <div class="card">
+        <div class="card" *ngFor="let event of events">
             <div class="image">
-                <img src="http://css.motogp.com/w2015/img/event/324x143/QAT.jpg?version=1b2f12a88f4cd8c6d09b43b2d2f3a5872f58d63467426850eb1b36cae4d67b2e"
-                    alt="Qatar">
+                <img src="{{event.imagePath}}" alt="{{event.countryEn}}">
             </div>
             <div class="content">
-                <div class="header"> 1 - Мото Гран-при Катара </div>
+                <div class="header">{{event.name}}</div>
                 <div class="meta">
-                    <a> Международный автодром Лосаль </a>
+                    <a> {{event.circuitName}} </a>
                 </div>
-                <!--<div class="description">Matthew is an interior designer living in New York. </div>-->
             </div>
             <div class="extra content">
-                <span class="right floated"> 26 марта </span>
-                <span><i class="qa flag"></i> КАТАР </span>
+                <span class="right floated">{{event.dateEvent}}</span>
+                <span><i class="{{event.isoCode}} flag"></i>{{event.countryRu}}</span>
             </div>
         </div>
-
-        <div class="card">
-            <div class="image">
-                <img src="http://css.motogp.com/w2015/img/event/324x143/ARG.jpg?version=1b2f12a88f4cd8c6d09b43b2d2f3a5872f58d63467426850eb1b36cae4d67b2e"
-                    alt="Argentina">
-            </div>
-            <div class="content">
-                <div class="header"> 2 - Мото Гран-при Аргентины </div>
-                <div class="meta">
-                    <a> Международный автодром Термас де Рио Ондо </a>
-                </div>
-                <!--<div class="description">Matthew is an interior designer living in New York. </div>-->
-            </div>
-            <div class="extra content">
-                <span class="right floated"> 09 апреля </span>
-                <span><i class="ar flag"></i> АРГЕНТИНА </span>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="image">
-                <img src="http://css.motogp.com/w2015/img/event/324x143/AME.jpg?version=1b2f12a88f4cd8c6d09b43b2d2f3a5872f58d63467426850eb1b36cae4d67b2e"
-                    alt="Americas">
-            </div>
-            <div class="content">
-                <div class="header"> 3 - Мото Гран-при Америки </div>
-                <div class="meta">
-                    <a> Трасса Америк </a>
-                </div>
-                <!--<div class="description">Matthew is an interior designer living in New York. </div>-->
-            </div>
-            <div class="extra content">
-                <span class="right floated"> 23 апреля </span>
-                <span><i class="us flag"></i> США </span>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="image">
-                <img src="http://css.motogp.com/w2015/img/event/324x143/SPA.jpg?version=1b2f12a88f4cd8c6d09b43b2d2f3a5872f58d63467426850eb1b36cae4d67b2e"
-                    alt="Spain">
-            </div>
-            <div class="content">
-                <div class="header"> 4 - Мото Гран-при Испании </div>
-                <div class="meta">
-                    <a> Автодром Херес </a>
-                </div>
-                <!--<div class="description">Matthew is an interior designer living in New York. </div>-->
-            </div>
-            <div class="extra content">
-                <span class="right floated"> 07 мая </span>
-                <span><i class="es flag"></i> ИСПАНИЯ </span>
-            </div>
-        </div>
-
     </div>
 </div>
