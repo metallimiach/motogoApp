@@ -1,14 +1,12 @@
 <div class="ui main container">
     <div class="ui link cards">
-        <div class="card" *ngFor="let event of events">
+        <div class="card" *ngFor="let event of events" [routerLink]="['/event', event.id]">
             <div class="image">
                 <img src="{{event.imagePath}}" alt="{{event.countryEn}}">
             </div>
             <div class="content">
                 <div class="header">{{event.name}}</div>
-                <div class="meta">
-                    <a> {{event.circuitName}} </a>
-                </div>
+                <div class="meta">{{event.circuitName}}</div>
             </div>
             <div class="extra content">
                 <span class="right floated">{{event.dateEvent}}</span>
