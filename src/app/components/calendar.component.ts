@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Event } from '../../models/event';
-import { EventData } from '../mock-event';
+import { EventService } from '../services/event.service';
 
 @Component ({
     moduleId: module.id,
@@ -9,8 +9,18 @@ import { EventData } from '../mock-event';
     templateUrl: 'calendar.component.html'
 })
 
-export class CalendarComponent {
-    title = '2017 Календарь соревнований';
+export class CalendarComponent implements OnInit {
+    events: Event[];
 
-    events: Array<Event> = EventData;
+    constructor(
+        private eventservice: EventService
+        ) { }
+                
+    ngOnInit(): void {
+        this.getEvents();
+    }
+
+    getEvents(): void {
+        this.eventservice.getEvents().then(events => this.events = events);
+    }
 }
