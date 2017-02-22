@@ -1,4 +1,23 @@
 <div *ngIf="event">
-    <h1>{{event.name}}</h1>
-<button class="ui basic button" (click)="goBack()"><i class="left chevron icon"></i>Вернуться</button>
+    <h1 class="ui center aligned grey header">{{event.name}}</h1>
+    <h3 class="ui horizontal divider grey header"> {{event.weekend}} </h3>
+    <img class="ui fluid image" src="{{event.schema}}">
+    <div class="ui divider"></div>
+    <div class="ui three statistics">
+        <div class="ui green statistic">
+            <div class="value">{{event.averageSpeed}}</div>
+            <div class="label">Средняя скорость (км/ч)</div>
+        </div>
+        <div class="ui red statistic">
+            <div class="value">{{event.topSpeed}}</div>
+            <div class="label">Максимальная скорость (км/ч)</div>
+        </div>
+        <div class="ui purple statistic">
+            <div class="value">{{event.circuitRecord}}</div>
+            <div class="label">Рекорд круга ({{event.fastestRider}})</div>
+        </div>
+    </div>
 </div>
+<!--<div>
+    <button class="ui basic button" (click)="goBack()"><i class="left chevron icon"></i>Вернуться</button>
+</div>-->

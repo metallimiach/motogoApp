@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Event } from '../../models/event';
-import { EventData } from '../mock-events';
+import { EventData } from  '../mock-data/mock-events';
 
 @Injectable()
 export class EventService {
