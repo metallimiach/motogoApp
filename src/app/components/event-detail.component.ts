@@ -16,7 +16,7 @@ import { Event } from '../../models/event';
 export class EventComponent implements OnInit {
     
     constructor(
-        private eventServise: EventService,
+        private eventService: EventService,
         private route: ActivatedRoute,
         private location: Location
     ) {}
@@ -25,7 +25,7 @@ export class EventComponent implements OnInit {
 
     ngOnInit(): void {
         this.route.params
-        .switchMap((params: Params) => this.eventServise.getEvent(+params['id']))
+        .switchMap((params: Params) => this.eventService.getEvent(+params['id']))
         .subscribe(event => this.event = event);
     }
 

@@ -14,11 +14,13 @@ import { EventComponent } from '././components/event-detail.component';
 
 //services
 import { EventService } from './services/event.service';
+import { TeamService } from './services/team.service';
 
 @NgModule({
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
   declarations: [
     AppComponent,
@@ -28,7 +30,8 @@ import { EventService } from './services/event.service';
     EventComponent
   ],
   providers: [
-    EventService
+    EventService,
+    TeamService
   ],
   bootstrap: [AppComponent]
 })

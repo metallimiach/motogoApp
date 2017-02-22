@@ -1,1 +1,17 @@
-<h1>{{title}}</h1>
+<div class="ui divided items">
+    <div class="item" *ngFor="let team of teams">
+        <div class="image">
+            <img src="{{team.imagePath}}" alt="{{team.teamName}}">
+        </div>
+        <div class="content">
+            <a class="header">{{team.teamName}}</a>
+            <div class="meta">
+                <span>Мотоцикл: {{team.moto}}</span>
+            </div>
+            <div class="description">
+                <p></p>
+            </div>
+            <div class="extra">Additional Details </div>
+        </div>
+    </div>
+</div>
