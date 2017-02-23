@@ -15,6 +15,7 @@ import { EventComponent } from '././components/event-detail.component';
 //services
 import { EventService } from './services/event.service';
 import { TeamService } from './services/team.service';
+import { RiderService } from './services/rider.service';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { TeamService } from './services/team.service';
   ],
   providers: [
     EventService,
-    TeamService
+    TeamService,
+    RiderService
   ],
   bootstrap: [AppComponent]
 })
