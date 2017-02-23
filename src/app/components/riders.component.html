@@ -1,1 +1,17 @@
-<h1>{{title}}</h1>
+<div class="ui cards">
+    <div class="ui card" *ngFor="let rider of riders">
+        <div class="content">
+            <div class="right floated meta"><i class="motorcycle icon"></i> {{rider.moto}}</div>
+            <img class="ui tiny image" src="{{rider.logo}}" alt="logo">
+        </div>
+        <div class="image">
+            <img src="{{rider.imagePath}}" alt="{{rider.name}}">
+        </div>
+        <div class="content">
+            <div class="ui medium header"><i class="{{rider.isoCode}} flag"></i>{{rider.name}}</div>
+            <div class="meta">
+                <span>{{rider.team}}</span>
+            </div>
+        </div>
+    </div>
+</div>
