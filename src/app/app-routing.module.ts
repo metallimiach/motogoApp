@@ -5,7 +5,7 @@ import { AppComponent }  from './app.component';
 import { CalendarComponent } from '././components/calendar.component';
 import { TeamComponent } from '././components/teams.component';
 import { RiderComponent } from '././components/riders.component';
-import { EventComponent } from '././components/event-detail.component';
+import { EventComponent } from '././components/event.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/calendar', pathMatch: 'full' },

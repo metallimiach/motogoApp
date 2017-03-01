@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-
-import 'rxjs/add/operator/switchMap';
+import { FirebaseObjectObservable } from 'angularfire2';
 
 import { EventService } from '../services/event.service';
 import { Event } from '../../models/event';
@@ -10,7 +9,7 @@ import { Event } from '../../models/event';
 @Component({
     moduleId: module.id,
     selector: 'event-detail',
-    templateUrl: 'event-detail.component.html'
+    templateUrl: 'event.component.html'
 })
 
 export class EventComponent implements OnInit {
@@ -21,12 +20,21 @@ export class EventComponent implements OnInit {
         private location: Location
     ) {}
 
-    event: Event;
+    public event: Event;
 
     ngOnInit(): void {
-        this.route.params
-        .switchMap((params: Params) => this.eventService.getEvent(+params['id']))
-        .subscribe(event => this.event = event);
+        this.getEvent();
+    }
+
+    getEvent(): void {
+        // Get ID from route string
+        let id = this.route.snapshot.params['id'];
+
+        // Get particular event
+        this.eventService.getEvent(id)
+        .subscribe(event => {
+            this.event = event;
+        });
     }
 
     goBack(): void {

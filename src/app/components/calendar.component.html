@@ -1,17 +1,19 @@
-<div class="ui main container">
-    <div class="ui link cards">
-        <div class="card" *ngFor="let event of events" [routerLink]="['/event', event.id]">
-            <div class="image">
-                <img src="{{event.imagePath}}" alt="{{event.countryEn}}">
-            </div>
-            <div class="content">
-                <div class="ui medium header">{{event.ordinalNum}} - {{event.name}}</div>
-                <div class="meta">{{event.circuitName}}</div>
-            </div>
-            <div class="extra content">
-                <span class="right floated">{{event.dateEvent}}</span>
-                <span><i class="{{event.isoCode}} flag"></i>{{event.countryRu}}</span>
-            </div>
+<!--<h2 class="ui center aligned grey icon header">
+    <i class="calendar icon"></i>
+    <div class="content">Календарь соревнований на 2017 год </div>
+</h2>-->
+<div class="ui three doubling link cards">
+    <div class="orange card" *ngFor="let event of events | async" [routerLink]="['/event', event.$key]">
+        <div class="image">
+            <img src="{{event.imagePath}}" alt="{{event.countryEn}}">
+        </div>
+        <div class="content">
+            <div class="ui medium header">{{event.ordinalNum}} - {{event.name}}</div>
+            <div class="meta">{{event.circuitName}}</div>
+        </div>
+        <div class="extra content">
+            <span class="right floated">{{event.dateEvent}}</span>
+            <span><i class="{{event.isoCode}} flag"></i>{{event.countryRu}}</span>
         </div>
     </div>
 </div>
