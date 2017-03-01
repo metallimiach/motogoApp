@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseListObservable } from 'angularfire2';
 
 import { Event } from '../../models/event';
 import { EventService } from '../services/event.service';
@@ -10,9 +11,10 @@ import { EventService } from '../services/event.service';
 })
 
 export class CalendarComponent implements OnInit {
-    events: Event[];
+    
+    events: FirebaseListObservable<Event[]>;
 
-    constructor(
+    constructor(        
         private eventService: EventService
     ) { }
 
@@ -21,6 +23,6 @@ export class CalendarComponent implements OnInit {
     }
 
     getEvents(): void {
-        this.eventService.getEvents().then(events => this.events = events);
+        this.events = this.eventService.getEvents();
     }
 }
