@@ -1,17 +1,29 @@
 <div class="ui divided items">
-    <div class="item" *ngFor="let team of teams">
+    <div class="item" *ngFor="let team of teams | async">
         <div class="image">
             <img src="{{team.imagePath}}" alt="{{team.teamName}}">
         </div>
-        <div class="content">
+        <div class="middle aligned content">
             <div class="ui huge header">{{team.teamName}}</div>
             <div class="meta">
-                <span>Мотоцикл: {{team.moto}}</span>
+                <span>Мотоцикл: </span>
+                <span>{{team.moto}}</span>
             </div>
-            <div class="description">
-                <p></p>
+            <br>
+            <div class="extra">                
+                <div class="ui items">
+                    <div class="ui item" *ngFor="let rider of team.riders">
+                        <div class="ui tiny image">
+                            <img src="{{rider.logo}}" alt="{{rider.name}}">
+                        </div>
+                        <div class="middle aligned content">
+                            <div class="ui small header">
+                                <i class="{{rider.isoCode}} flag"></i> {{rider.name}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="extra">Additional Details </div>
         </div>
     </div>
 </div>

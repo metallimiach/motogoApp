@@ -1,5 +1,4 @@
 export class Event {
-    id: number;
     ordinalNum: number;
     imagePath: string;
     schema: string;
