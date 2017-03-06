@@ -1,8 +1,8 @@
-<div class="ui cards">
-    <div class="ui card" *ngFor="let rider of riders">
+<div class="ui four doubling cards">
+    <div class="blue card" *ngFor="let rider of riders | async">
         <div class="content">
             <div class="right floated meta"><i class="motorcycle icon"></i> {{rider.moto}}</div>
-            <img class="ui tiny image" src="{{rider.logo}}" alt="logo">
+            <img class="ui tiny image" src="{{rider.logo}}" alt="{{rider.num}}">
         </div>
         <div class="image">
             <img src="{{rider.imagePath}}" alt="{{rider.name}}">

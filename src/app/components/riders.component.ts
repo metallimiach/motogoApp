@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseListObservable } from 'angularfire2';
 
 import { Rider } from '../../models/rider';
 import { RiderService } from '../services/rider.service';
@@ -10,8 +11,8 @@ import { RiderService } from '../services/rider.service';
 })
 
 export class RiderComponent implements OnInit {
-    riders: Rider[] = [];
 
+    riders: FirebaseListObservable<Rider[]>;
     
     constructor(
         private riderService: RiderService
@@ -22,6 +23,6 @@ export class RiderComponent implements OnInit {
     }
 
     getRiders(): void {
-        this.riderService.getRiders().then(riders => this.riders = riders);
+        this.riders = this.riderService.getRiders();
     }
 }

@@ -1,12 +1,19 @@
 import { Injectable } from '@angular/core';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 import { Rider } from '../../models/rider';
-import { RidersData } from '../mock-data/mock-riders';
 
 @Injectable()
 export class RiderService {
     
-    getRiders(): Promise<Rider[]> {
-        return Promise.resolve(RidersData);
+    constructor(
+        private af: AngularFire
+    ) { 
+        this.af.auth.login();
+    }
+    
+    getRiders(): FirebaseListObservable<Rider[]> {
+        let riders = this.af.database.list('/riders') as FirebaseListObservable<Rider[]>;
+        return riders;
     }
 }

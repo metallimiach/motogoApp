@@ -1,7 +1,3 @@
-<!--<h2 class="ui center aligned grey icon header">
-    <i class="calendar icon"></i>
-    <div class="content">Календарь соревнований на 2017 год </div>
-</h2>-->
 <div class="ui three doubling link cards">
     <div class="orange card" *ngFor="let event of events | async" [routerLink]="['/event', event.$key]">
         <div class="image">

@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 import { Team } from '../../models/team';
-import { TeamsData } from '../mock-data/mock-teams';
 
 @Injectable()
 export class TeamService {
-    
-    getTeams(): Promise<Team[]> {
-        return Promise.resolve(TeamsData);
+         
+    constructor(
+        private af: AngularFire
+    ) { 
+        this.af.auth.login();
     }
-
-    getTeam(id: number): Promise<Team> {
-        return this.getTeams()
-        .then(teams => teams.find(team => team.id === id));
+    
+    getTeams(): FirebaseListObservable<Team[]> {
+        let teams = this.af.database.list('/teams') as FirebaseListObservable<Team[]>;
+        return teams;
     }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseListObservable } from 'angularfire2';
 
 import { Team } from '../../models/team';
 import { TeamService } from '../services/team.service';
@@ -10,7 +11,8 @@ import { TeamService } from '../services/team.service';
 })
 
 export class TeamComponent implements OnInit {
-    teams: Team[];
+
+    teams: FirebaseListObservable<Team[]>;
 
     constructor(
         private teamService: TeamService
@@ -21,6 +23,6 @@ export class TeamComponent implements OnInit {
     }
 
     getTeams(): void {
-        this.teamService.getTeams().then(teams => this.teams = teams);
+        this.teams = this.teamService.getTeams();
     }
 }
