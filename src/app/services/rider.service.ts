@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
-import { Rider } from '../../models/rider';
+import { Rider } from '../models/rider';
 
 @Injectable()
 export class RiderService {

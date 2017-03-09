@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2';
 
-import { Rider } from '../../models/rider';
+import { Rider } from '../models/rider';
 import { RiderService } from '../services/rider.service';
 
 @Component ({

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
-import { Team } from '../../models/team';
+import { Team } from '../models/team';
 
 @Injectable()
 export class TeamService {
