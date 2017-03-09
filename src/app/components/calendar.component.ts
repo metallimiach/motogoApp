@@ -3,7 +3,7 @@ import { FirebaseListObservable } from 'angularfire2';
 
 import * as firebase from 'firebase';
 
-import { Event } from '../../models/event';
+import { Event } from '../models/event';
 import { EventService } from '../services/event.service';
 
 @Component({

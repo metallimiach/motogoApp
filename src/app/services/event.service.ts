@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
-import { Event } from '../../models/event';
+import { Event } from '../models/event';
 
 @Injectable()
 export class EventService {

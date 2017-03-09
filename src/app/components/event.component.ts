@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 import { FirebaseObjectObservable } from 'angularfire2';
 
 import { EventService } from '../services/event.service';
-import { Event } from '../../models/event';
+import { Event } from '../models/event';
 
 @Component({
     moduleId: module.id,
