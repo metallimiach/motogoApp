@@ -1,20 +1,66 @@
 <div *ngIf="event">
     <h1 class="ui center aligned grey header">{{event.name}}</h1>
     <h3 class="ui horizontal divider grey header"> {{event.weekend}} </h3>
-    <img class="ui fluid image" src="{{event.schema}}">
-    <div class="ui divider"></div>
-    <div class="ui three statistics">
-        <div class="ui green statistic">
-            <div class="value">{{event.averageSpeed}}</div>
-            <div class="label">Средняя скорость (км/ч)</div>
-        </div>
-        <div class="ui red statistic">
-            <div class="value">{{event.topSpeed}}</div>
-            <div class="label">Максимальная скорость (км/ч)</div>
-        </div>
-        <div class="ui purple statistic">
-            <div class="value">{{event.circuitRecord}}</div>
-            <div class="label">Рекорд круга ({{event.fastestRider}})</div>
+    <div class="ui stackable two column grid">
+        <div class="row">
+            <div class="nine wide column">
+                <div class="ui fluid image">
+                    <img src="{{event.schema}}">
+                </div>
+            </div>
+            <div class="seven wide column">
+                <div class="row">
+                    <table class="ui very basic fixed table">
+                        <tbody>
+                            <div class="ui basic brown ribbon label">{{event.circuitName}}</div>
+                            <tr>
+                                <td>
+                                    <h4 class="ui header">Длина круга (км)</h4>
+                                </td>
+                                <td>{{event.lengh}}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="ui header">Ширина полотна (м)</h4>
+                                </td>
+                                <td>{{event.width}}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="ui header">Длина прямой (м)</h4>
+                                </td>
+                                <td>{{event.longestStraight}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <div class="row">
+                    <table class="ui very basic fixed table">
+                        <tbody>
+                            <div class="ui basic red ribbon label">Рекорды</div>
+                            <tr>
+                                <td>
+                                    <h4 class="ui header">Средняя скорость (км/ч)</h4>
+                                </td>
+                                <td>{{event.averageSpeed}}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="ui header">Максимальная скорость (км/ч)</h4>
+                                </td>
+                                <td>{{event.topSpeed}}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="ui header">Рекорд круга</h4>
+                                </td>
+                                <td>{{event.circuitRecord}} <br> ( {{event.fastestRider}} )</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
     <br>
