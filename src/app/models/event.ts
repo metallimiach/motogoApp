@@ -9,8 +9,11 @@ export class Event {
     circuitName: string;
     dateEvent: string;
     weekend: string;
-    averageSpeed: number;
-    topSpeed: number;
+    averageSpeed: string;
+    topSpeed: string;
     circuitRecord: string;
     fastestRider: string;
+    lengh: string;
+	width: string;
+	longestStraight: string;
 }
