@@ -1,4 +1,5 @@
 <div *ngIf="event">
+    <!--Event info (track schema, track data and track records)-->
     <h1 class="ui center aligned grey header">{{event.name}}</h1>
     <h3 class="ui horizontal divider grey header"> {{event.weekend}} </h3>
     <div class="ui stackable two column grid">
@@ -14,21 +15,15 @@
                         <tbody>
                             <div class="ui basic brown ribbon label">{{event.circuitName}}</div>
                             <tr>
-                                <td>
-                                    <h4 class="ui header">Длина круга (км)</h4>
-                                </td>
+                                <td><h4 class="ui header">Длина круга (км)</h4></td>
                                 <td>{{event.lengh}}</td>
                             </tr>
                             <tr>
-                                <td>
-                                    <h4 class="ui header">Ширина полотна (м)</h4>
-                                </td>
+                                <td><h4 class="ui header">Ширина полотна (м)</h4></td>
                                 <td>{{event.width}}</td>
                             </tr>
                             <tr>
-                                <td>
-                                    <h4 class="ui header">Длина прямой (м)</h4>
-                                </td>
+                                <td><h4 class="ui header">Длина прямой (м)</h4></td>
                                 <td>{{event.longestStraight}}</td>
                             </tr>
                         </tbody>
@@ -40,21 +35,15 @@
                         <tbody>
                             <div class="ui basic red ribbon label">Рекорды</div>
                             <tr>
-                                <td>
-                                    <h4 class="ui header">Средняя скорость (км/ч)</h4>
-                                </td>
+                                <td><h4 class="ui header">Средняя скорость (км/ч)</h4></td>
                                 <td>{{event.averageSpeed}}</td>
                             </tr>
                             <tr>
-                                <td>
-                                    <h4 class="ui header">Максимальная скорость (км/ч)</h4>
-                                </td>
+                                <td><h4 class="ui header">Максимальная скорость (км/ч)</h4></td>
                                 <td>{{event.topSpeed}}</td>
                             </tr>
                             <tr>
-                                <td>
-                                    <h4 class="ui header">Рекорд круга</h4>
-                                </td>
+                                <td><h4 class="ui header">Рекорд круга</h4></td>
                                 <td>{{event.circuitRecord}} <br> ( {{event.fastestRider}} )</td>
                             </tr>
                         </tbody>
@@ -63,6 +52,77 @@
             </div>
         </div>
     </div>
+
+    <!--Event results-->
+    <div *ngIf="(_showResults && event.results)">
+        <div class="ui hidden divider"></div>
+        <h3 class="ui center aligned grey header">Результаты {{event.name}}</h3>
+        <div class="ui top attached tabular menu">
+            <a [ngClass]="_isActiveTab ? 'active item' : 'item'" data-tab="first" (click)="toggleTab()">Квалификация</a>
+            <a *ngIf="(_showResults && event.results.race)" [ngClass]="!_isActiveTab ? 'active item' : 'item'" data-tab="second" (click)="toggleTab()">Гонка</a>
+        </div>
+        <div [ngClass]="_isActiveTab ? 'ui bottom attached active tab segment' : 'ui bottom attached tab segment'" data-tab="first">
+            <table class="ui very basic table">
+                <thead>
+                    <tr>
+                        <th class="center aligned">Позиция</th>
+                        <th>Номер</th>
+                        <th>Пилот</th>
+                        <th>Команда</th>
+                        <th>Мотоцикл</th>
+                        <th>Время</th>
+                        <th>Отставание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let qualificationResult of qualificationResults">
+                        <td><h5 class="ui center aligned header">{{qualificationResult.position}}</h5></td>
+                        <td><img class="ui tiny image" src="{{qualificationResult.riderNum}}"></td>
+                        <td><i class="{{qualificationResult.riderCountry}} flag"></i> {{qualificationResult.riderName}}</td>
+                        <td>{{qualificationResult.team}}</td>
+                        <td>{{qualificationResult.moto}}</td>
+                        <td>{{qualificationResult.time}}</td>
+                        <td>{{qualificationResult.gap}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div [ngClass]="!_isActiveTab ? 'ui bottom attached active tab segment' : 'ui bottom attached tab segment'" data-tab="second">
+            <table class="ui very basic table">
+                <thead>
+                    <tr>
+                        <th class="center aligned">Позиция</th>
+                        <th class="center aligned">Очки</th>
+                        <th>Номер</th>
+                        <th>Пилот</th>
+                        <th>Команда</th>
+                        <th>Мотоцикл</th>
+                        <th>Время/Отставание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let raceResult of raceResults">
+                        <td><h5 class="ui center aligned header">{{raceResult.position}}</h5></td>
+                        <td><h5 class="ui center aligned header">{{raceResult.points}}</h5></td>
+                        <td><img class="ui tiny image" src="{{raceResult.riderNum}}"></td>
+                        <td><i class="{{raceResult.riderCountry}} flag"></i> {{raceResult.riderName}}</td>
+                        <td>{{raceResult.team}}</td>
+                        <td>{{raceResult.moto}}</td>
+                        <td>{{raceResult.time}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
     <br>
-    <button class="ui labeled icon mini basic button" (click)="goBack()"><i class="left chevron icon"></i>Вернуться</button>
+    <button class="ui teal labeled icon basic button" (click)="goBack()"><i class="left chevron icon"></i>Вернуться</button>
+    <button *ngIf="(!_showResults && event.results)" class="positive ui right labeled icon right floated basic button" (click)="showResults()">
+        <i class="chevron down icon"></i>
+            Показать результаты
+            </button>
+    <button *ngIf="(_showResults && event.results)" class="negative ui right labeled icon right floated basic button" (click)="showResults()">
+        <i class="chevron up icon"></i>
+            Скрыть результаты
+            </button>
 </div>

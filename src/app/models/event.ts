@@ -16,4 +16,5 @@ export class Event {
     lengh: string;
 	width: string;
 	longestStraight: string;
+    results ?: any;
 }
