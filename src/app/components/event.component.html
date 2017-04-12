@@ -6,7 +6,7 @@
         <div class="row">
             <div class="nine wide column">
                 <div class="ui fluid image">
-                    <img src="{{event.schema}}">
+                    <img src="{{event.schema}}" alt="{{event.circuitName}}">
                 </div>
             </div>
             <div class="seven wide column">
@@ -66,7 +66,7 @@
                 <thead>
                     <tr>
                         <th class="center aligned">Позиция</th>
-                        <th>Номер</th>
+                        <th class="center aligned">Номер</th>
                         <th>Пилот</th>
                         <th>Команда</th>
                         <th>Мотоцикл</th>
@@ -77,7 +77,7 @@
                 <tbody>
                     <tr *ngFor="let qualificationResult of qualificationResults">
                         <td><h5 class="ui center aligned header">{{qualificationResult.position}}</h5></td>
-                        <td><img class="ui tiny image" src="{{qualificationResult.riderNum}}"></td>
+                        <td><img class="ui tiny image" src="{{qualificationResult.riderNum}}" alt="{{qualificationResult.riderName}}"></td>
                         <td><i class="{{qualificationResult.riderCountry}} flag"></i> {{qualificationResult.riderName}}</td>
                         <td>{{qualificationResult.team}}</td>
                         <td>{{qualificationResult.moto}}</td>
@@ -93,7 +93,7 @@
                     <tr>
                         <th class="center aligned">Позиция</th>
                         <th class="center aligned">Очки</th>
-                        <th>Номер</th>
+                        <th class="center aligned">Номер</th>
                         <th>Пилот</th>
                         <th>Команда</th>
                         <th>Мотоцикл</th>
@@ -104,7 +104,7 @@
                     <tr *ngFor="let raceResult of raceResults">
                         <td><h5 class="ui center aligned header">{{raceResult.position}}</h5></td>
                         <td><h5 class="ui center aligned header">{{raceResult.points}}</h5></td>
-                        <td><img class="ui tiny image" src="{{raceResult.riderNum}}"></td>
+                        <td><img class="ui tiny image" src="{{raceResult.riderNum}}" alt="{{raceResult.riderName}}"></td>
                         <td><i class="{{raceResult.riderCountry}} flag"></i> {{raceResult.riderName}}</td>
                         <td>{{raceResult.team}}</td>
                         <td>{{raceResult.moto}}</td>

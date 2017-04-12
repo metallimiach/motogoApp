@@ -14,11 +14,13 @@ import { CalendarComponent } from '././components/calendar.component';
 import { TeamComponent } from '././components/teams.component';
 import { RiderComponent } from '././components/riders.component';
 import { EventComponent } from '././components/event.component';
+import { ResultsComponent } from '././components/results.component';
 
 // services
 import { EventService } from './services/event.service';
 import { TeamService } from './services/team.service';
 import { RiderService } from './services/rider.service';
+import { ResultService } from './services/result.service';
 
 @NgModule({
   imports: [
@@ -32,12 +34,14 @@ import { RiderService } from './services/rider.service';
     CalendarComponent,
     TeamComponent,
     RiderComponent,
-    EventComponent
+    EventComponent,
+    ResultsComponent
   ],
   providers: [
     EventService,
     TeamService,
-    RiderService
+    RiderService,
+    ResultService
   ],
   bootstrap: [AppComponent]
 })

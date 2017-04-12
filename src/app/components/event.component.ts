@@ -37,7 +37,7 @@ export class EventComponent implements OnInit {
         // Get ID from route string
         let id = this.route.snapshot.params['id'];
 
-        // Get particular event
+        // Get particular event by id
         this.eventService.getEvent(id)
             .subscribe(event => {
                 this.event = event;

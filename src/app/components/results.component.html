@@ -1,0 +1,35 @@
+<div class="ui hidden divider"></div>
+<div class="ui grid">
+    <div class="eleven wide stretched column">
+        <div [ngClass]="_isActiveTab ? 'ui active tab' : 'ui tab'" data-tab="first">
+            <table class="ui very basic table">
+                <tbody>
+                    <tr *ngFor="let riderResult of riderResults">
+                        <td><h3 class="ui center aligned header">{{riderResult.position}}</h3></td>
+                        <td><h1 class="ui center aligned header">{{riderResult.points}}</h1></td>
+                        <td><img class="ui centered tiny image" src="{{riderResult.imagePath}}" alt="{{riderResult.name}}"></td>
+                        <td><h3><i class="{{riderResult.isoCode}} flag"></i> {{riderResult.name}}</h3>{{riderResult.team}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div [ngClass]="!_isActiveTab ? 'ui bottom attached active tab' : 'ui bottom attached tab'" data-tab="second">
+            <table class="ui very basic table">
+                <tbody>
+                    <tr *ngFor="let teamResult of teamResults">
+                        <td><h3 class="ui center aligned header">{{teamResult.position}}</h3></td>
+                        <td><h1 class="ui center aligned header">{{teamResult.points}}</h1></td>
+                        <td><img class="ui centered tiny image" src="{{teamResult.imagePath}}" alt="{{teamResult.name}}"></td>
+                        <td><h3>{{teamResult.team}}</h3></td>
+                    </tr>                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="five wide column">
+        <div class="ui vertical fluid right tabular menu">
+            <a [ngClass]="_isActiveTab ? 'active item' : 'item'" data-tab="first" (click)="toggleTab()">Пилоты</a>
+            <a [ngClass]="!_isActiveTab ? 'active item' : 'item'" data-tab="second" (click)="toggleTab()">Команды</a>
+        </div>
+    </div>
+</div>

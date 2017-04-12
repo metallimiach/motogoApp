@@ -12,7 +12,7 @@ import { TeamService } from '../services/team.service';
 
 export class TeamComponent implements OnInit {
 
-    teams: FirebaseListObservable<Team[]>;
+    public teams: FirebaseListObservable<Team[]>;
 
     constructor(
         private teamService: TeamService
