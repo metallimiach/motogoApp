@@ -1,7 +1,7 @@
 <div class="ui hidden divider"></div>
 <div class="ui grid">
     <div class="eleven wide stretched column">
-        <div [ngClass]="_isActiveTab ? 'ui active tab' : 'ui tab'" data-tab="first">
+        <div [ngClass]="isActiveTab ? 'ui active tab' : 'ui tab'" data-tab="first">
             <table class="ui very basic table">
                 <tbody>
                     <tr *ngFor="let riderResult of riderResults">
@@ -13,7 +13,7 @@
                 </tbody>
             </table>
         </div>
-        <div [ngClass]="!_isActiveTab ? 'ui bottom attached active tab' : 'ui bottom attached tab'" data-tab="second">
+        <div [ngClass]="!isActiveTab ? 'ui bottom attached active tab' : 'ui bottom attached tab'" data-tab="second">
             <table class="ui very basic table">
                 <tbody>
                     <tr *ngFor="let teamResult of teamResults">
@@ -28,8 +28,8 @@
     </div>
     <div class="five wide column">
         <div class="ui vertical fluid right tabular menu">
-            <a [ngClass]="_isActiveTab ? 'active item' : 'item'" data-tab="first" (click)="toggleTab()">Пилоты</a>
-            <a [ngClass]="!_isActiveTab ? 'active item' : 'item'" data-tab="second" (click)="toggleTab()">Команды</a>
+            <a [ngClass]="isActiveTab ? 'active item' : 'item'" data-tab="first" (click)="toggleTab()">Пилоты</a>
+            <a [ngClass]="!isActiveTab ? 'active item' : 'item'" data-tab="second" (click)="toggleTab()">Команды</a>
         </div>
     </div>
 </div>

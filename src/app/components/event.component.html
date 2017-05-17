@@ -54,14 +54,14 @@
     </div>
 
     <!--Event results-->
-    <div *ngIf="(_showResults && event.results)">
+    <div *ngIf="(showRes && event.results)">
         <div class="ui hidden divider"></div>
         <h3 class="ui center aligned grey header">Результаты {{event.name}}</h3>
         <div class="ui top attached tabular menu">
-            <a [ngClass]="_isActiveTab ? 'active item' : 'item'" data-tab="first" (click)="toggleTab()">Квалификация</a>
-            <a *ngIf="(_showResults && event.results.race)" [ngClass]="!_isActiveTab ? 'active item' : 'item'" data-tab="second" (click)="toggleTab()">Гонка</a>
+            <a [ngClass]="isActiveTab ? 'active item' : 'item'" data-tab="first" (click)="toggleTab()">Квалификация</a>
+            <a *ngIf="(showRes && event.results.race)" [ngClass]="!isActiveTab ? 'active item' : 'item'" data-tab="second" (click)="toggleTab()">Гонка</a>
         </div>
-        <div [ngClass]="_isActiveTab ? 'ui bottom attached active tab segment' : 'ui bottom attached tab segment'" data-tab="first">
+        <div [ngClass]="isActiveTab ? 'ui bottom attached active tab segment' : 'ui bottom attached tab segment'" data-tab="first">
             <table class="ui very basic table">
                 <thead>
                     <tr>
@@ -87,7 +87,7 @@
                 </tbody>
             </table>
         </div>
-        <div [ngClass]="!_isActiveTab ? 'ui bottom attached active tab segment' : 'ui bottom attached tab segment'" data-tab="second">
+        <div [ngClass]="!isActiveTab ? 'ui bottom attached active tab segment' : 'ui bottom attached tab segment'" data-tab="second">
             <table class="ui very basic table">
                 <thead>
                     <tr>
@@ -117,11 +117,11 @@
 
     <br>
     <button class="positive ui labeled icon basic button" (click)="goBack()"><i class="left chevron icon"></i>Вернуться</button>
-    <button *ngIf="(!_showResults && event.results)" class="positive ui right labeled icon right floated basic button" (click)="showResults()">
+    <button *ngIf="(!showRes && event.results)" class="positive ui right labeled icon right floated basic button" (click)="showResults()">
         <i class="chevron down icon"></i>
             Показать результаты
             </button>
-    <button *ngIf="(_showResults && event.results)" class="negative ui right labeled icon right floated basic button" (click)="showResults()">
+    <button *ngIf="(showRes && event.results)" class="negative ui right labeled icon right floated basic button" (click)="showResults()">
         <i class="chevron up icon"></i>
             Скрыть результаты
             </button>
