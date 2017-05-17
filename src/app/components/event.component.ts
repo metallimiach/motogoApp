@@ -26,8 +26,8 @@ export class EventComponent implements OnInit {
     public qualificationResults: Array<QualificationResult> = [];
     public raceResults: Array<RaceResult> = [];
 
-    private _isActiveTab: boolean = true;
-    private _showResults: boolean = false;
+    public isActiveTab: boolean = true;
+    public showRes: boolean = false;
 
     ngOnInit(): void {
         this.getEvent();
@@ -55,10 +55,10 @@ export class EventComponent implements OnInit {
     }
 
     toggleTab(): void {
-        this._isActiveTab = !this._isActiveTab;
+        this.isActiveTab = !this.isActiveTab;
     }
 
     showResults(): void {
-        this._showResults = !this._showResults;
+        this.showRes = !this.showRes;
     }
 }

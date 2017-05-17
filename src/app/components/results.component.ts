@@ -11,8 +11,7 @@ import { ResultService } from '../services/result.service';
 
 export class ResultsComponent implements OnInit {
     
-    private _isActiveTab: boolean = true;
-    private _showResults: boolean = false;
+    public isActiveTab: boolean = true;
 
     public riderResults: Array<any> = [];
     public teamResults: Array<any> = [];
@@ -44,6 +43,6 @@ export class ResultsComponent implements OnInit {
     }
 
     toggleTab(): void {
-        this._isActiveTab = !this._isActiveTab;
+        this.isActiveTab = !this.isActiveTab;
     }
 }
